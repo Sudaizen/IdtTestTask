@@ -60,20 +60,6 @@ public class Item {
         return mLastActivityDate;
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "mAnswerId=" + mAnswerId +
-                ", mContentLicense='" + mContentLicense + '\'' +
-                ", mCreationDate=" + mCreationDate +
-                ", mIsAccepted=" + mIsAccepted +
-                ", mLastActivityDate=" + mLastActivityDate +
-                ", mOwner=" + mOwner +
-                ", mQuestionId=" + mQuestionId +
-                ", mScore=" + mScore +
-                '}';
-    }
-
     public void setLastActivityDate(Long lastActivityDate) {
         mLastActivityDate = lastActivityDate;
     }

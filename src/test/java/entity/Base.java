@@ -17,17 +17,6 @@ public class Base {
     @SerializedName("quota_remaining")
     private Long mQuotaRemaining;
 
-    @Override
-    public String toString() {
-        return "Base{" +
-                "mBackoff=" + mBackoff +
-                ", mHasMore=" + mHasMore +
-                ", mItems=" + mItems +
-                ", mQuotaMax=" + mQuotaMax +
-                ", mQuotaRemaining=" + mQuotaRemaining +
-                '}';
-    }
-
     public Long getBackoff() {
         return mBackoff;
     }

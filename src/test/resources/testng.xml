@@ -1,5 +1,4 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-
 <suite name="Stack Overflow" verbose="1" >
     <test name="Get answers" >
         <parameter name="site" value="stackoverflow"/>
@@ -8,12 +7,8 @@
         <parameter name="order" value="desc"/>
         <parameter name="sort" value="activity"/>
         <parameter name="filter" value="default"/>
-
         <classes>
             <class name="StackOverflowTest"/>
         </classes>
-
     </test>
-
-
 </suite>

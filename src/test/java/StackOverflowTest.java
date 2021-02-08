@@ -28,17 +28,19 @@ public class StackOverflowTest {
 
     @Parameters({"site", "page", "pagesize", "order", "sort", "filter"})
     @Test
-    public void answersApiTest(String site, String page, int pagesize, String order, String sort, String filter) throws UnsupportedEncodingException {
+    public void answersApiTest(String site, String page, int pageSize, String order, String sort, String filter)
+            throws UnsupportedEncodingException {
 
-        ValidatableResponse validatableResponse = queryParameters(site, page, pagesize, order, sort, filter).get("/answers")
+        ValidatableResponse validatableResponse = queryParameters(site, page, pageSize, order, sort, filter)
+                .get("/answers")
                 .then().assertThat().statusCode(statusCode);
 
         var items = validatableResponse.extract().as(Base.class).getItems();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(items.size() <= pagesize);
+        softAssert.assertTrue(items.size() <= pageSize);
 
-        for (int i = 0; i < items.size(); i++) {
-            Owner owner = items.get(i).getOwner();
+        for (entity.Item item : items) {
+            Owner owner = item.getOwner();
             softAssert.assertNotNull(owner);
             softAssert.assertTrue(owner.getLink().contains(owner.getUserId().toString()) &&
                     owner.getLink().contains(stringConverter(owner.getDisplayName())), owner.toString());
@@ -46,9 +48,10 @@ public class StackOverflowTest {
         softAssert.assertAll();
     }
 
-    public RequestSpecification queryParameters(String site, String page, int pagesize, String order, String sort, String filter) {
+    public RequestSpecification queryParameters(String site, String page, int pageSize, String order, String sort,
+                                                String filter) {
         return given().queryParam("site", site)
-                .queryParam("page", page).queryParam("pagesize", pagesize)
+                .queryParam("page", page).queryParam("pagesize", pageSize)
                 .queryParam("order", order)
                 .queryParam("sort", sort)
                 .queryParam("filter", filter);

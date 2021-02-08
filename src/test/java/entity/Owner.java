@@ -21,19 +21,6 @@ public class Owner {
     @SerializedName("user_type")
     private String mUserType;
 
-    @Override
-    public String toString() {
-        return "Owner{" +
-                "mAcceptRate=" + mAcceptRate +
-                ", mDisplayName='" + mDisplayName + '\'' +
-                ", mLink='" + mLink + '\'' +
-                ", mProfileImage='" + mProfileImage + '\'' +
-                ", mReputation=" + mReputation +
-                ", mUserId=" + mUserId +
-                ", mUserType='" + mUserType + '\'' +
-                '}';
-    }
-
     public Long getAcceptRate() {
         return mAcceptRate;
     }
